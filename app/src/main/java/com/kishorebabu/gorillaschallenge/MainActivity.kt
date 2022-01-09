@@ -3,8 +3,7 @@ package com.kishorebabu.gorillaschallenge
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import com.kishorebabu.gorillaschallenge.domain.repository.PostRepository
-import com.kishorebabu.gorillaschallenge.domain.usecase.GetAllPostsUseCase
+import com.kishorebabu.posts.domain.usecase.GetAllPostsUseCase
 import dagger.hilt.android.AndroidEntryPoint
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
