@@ -1,6 +1,6 @@
 package com.kishorebabu.gorillaschallenge.data.mapper.di
 
-import com.kishorebabu.gorillaschallenge.core.Mapper
+import com.kishorebabu.gorillaschallenge.utils.Mapper
 import com.kishorebabu.gorillaschallenge.data.mapper.AddressDtoToEntityMapper
 import com.kishorebabu.gorillaschallenge.data.mapper.CompanyDtoToEntityMapper
 import com.kishorebabu.gorillaschallenge.data.mapper.GeoDtoToEntityMapper

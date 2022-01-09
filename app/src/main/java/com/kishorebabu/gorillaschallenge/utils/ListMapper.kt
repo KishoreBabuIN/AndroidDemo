@@ -1,3 +1,3 @@
-package com.kishorebabu.gorillaschallenge.core
+package com.kishorebabu.gorillaschallenge.utils
 
 interface ListMapper<I, O> : Mapper<List<I>, List<O>>

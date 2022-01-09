@@ -1,6 +1,6 @@
 package com.kishorebabu.gorillaschallenge.data.mapper
 
-import com.kishorebabu.gorillaschallenge.core.Mapper
+import com.kishorebabu.gorillaschallenge.utils.Mapper
 import com.kishorebabu.gorillaschallenge.data.network.model.CompanyDto
 import com.kishorebabu.gorillaschallenge.domain.model.Company
 import javax.inject.Inject
