@@ -1,10 +1,10 @@
 package com.kishorebabu.gorillaschallenge.data.mapper
 
-import com.kishorebabu.gorillaschallenge.utils.Mapper
 import com.kishorebabu.gorillaschallenge.data.network.model.AddressDto
 import com.kishorebabu.gorillaschallenge.data.network.model.GeoDto
 import com.kishorebabu.gorillaschallenge.domain.model.Address
 import com.kishorebabu.gorillaschallenge.domain.model.Geo
+import com.kishorebabu.gorillaschallenge.utils.Mapper
 import javax.inject.Inject
 
 internal class AddressDtoToEntityMapper @Inject constructor(

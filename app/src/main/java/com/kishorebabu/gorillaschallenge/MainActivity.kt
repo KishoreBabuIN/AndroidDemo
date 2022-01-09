@@ -3,7 +3,6 @@ package com.kishorebabu.gorillaschallenge
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import com.kishorebabu.gorillaschallenge.data.network.api.JsonPlaceholderApi
 import com.kishorebabu.gorillaschallenge.domain.repository.PostRepository
 import dagger.hilt.android.AndroidEntryPoint
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers

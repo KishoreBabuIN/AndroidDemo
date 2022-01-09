@@ -1,8 +1,8 @@
 package com.kishorebabu.gorillaschallenge.data.mapper
 
-import com.kishorebabu.gorillaschallenge.utils.Mapper
 import com.kishorebabu.gorillaschallenge.data.network.model.PostDto
 import com.kishorebabu.gorillaschallenge.domain.model.Post
+import com.kishorebabu.gorillaschallenge.utils.Mapper
 import javax.inject.Inject
 
 internal class PostDtoToEntityMapper @Inject constructor() : Mapper<PostDto, Post> {

@@ -1,11 +1,11 @@
 package com.kishorebabu.gorillaschallenge.data.repository
 
-import com.kishorebabu.gorillaschallenge.utils.ListMapper
-import com.kishorebabu.gorillaschallenge.utils.Mapper
 import com.kishorebabu.gorillaschallenge.data.network.api.JsonPlaceholderApi
 import com.kishorebabu.gorillaschallenge.data.network.model.PostDto
 import com.kishorebabu.gorillaschallenge.domain.model.Post
 import com.kishorebabu.gorillaschallenge.domain.repository.PostRepository
+import com.kishorebabu.gorillaschallenge.utils.ListMapper
+import com.kishorebabu.gorillaschallenge.utils.Mapper
 import io.reactivex.rxjava3.core.Single
 import javax.inject.Inject
 

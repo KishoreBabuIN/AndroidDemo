@@ -3,7 +3,6 @@ package com.kishorebabu.gorillaschallenge.data.network.api
 import com.kishorebabu.gorillaschallenge.data.network.model.PostDto
 import com.kishorebabu.gorillaschallenge.data.network.model.UserDto
 import io.reactivex.rxjava3.core.Single
-import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
 

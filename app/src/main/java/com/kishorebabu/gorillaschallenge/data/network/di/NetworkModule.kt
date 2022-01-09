@@ -26,7 +26,7 @@ object NetworkModule {
             .baseUrl("https://jsonplaceholder.typicode.com")
             .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
             .addConverterFactory(Json.asConverterFactory(contentType))
-            .build();
+            .build()
     }
 
     @Provides

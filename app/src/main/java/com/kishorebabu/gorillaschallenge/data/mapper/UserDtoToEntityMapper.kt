@@ -1,12 +1,12 @@
 package com.kishorebabu.gorillaschallenge.data.mapper
 
-import com.kishorebabu.gorillaschallenge.utils.Mapper
 import com.kishorebabu.gorillaschallenge.data.network.model.AddressDto
 import com.kishorebabu.gorillaschallenge.data.network.model.CompanyDto
 import com.kishorebabu.gorillaschallenge.data.network.model.UserDto
 import com.kishorebabu.gorillaschallenge.domain.model.Address
 import com.kishorebabu.gorillaschallenge.domain.model.Company
 import com.kishorebabu.gorillaschallenge.domain.model.User
+import com.kishorebabu.gorillaschallenge.utils.Mapper
 import javax.inject.Inject
 
 internal class UserDtoToEntityMapper @Inject constructor(
