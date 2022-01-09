@@ -1,8 +1,8 @@
 package com.kishorebabu.gorillaschallenge.data.network.model
 
-data class Address(
+data class AddressDto(
     val city: String,
-    val geo: Geo,
+    val geo: GeoDto,
     val street: String,
     val suite: String,
     val zipcode: String

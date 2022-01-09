@@ -1,6 +1,6 @@
 package com.kishorebabu.gorillaschallenge.data.network.model
 
-data class Geo(
+data class GeoDto(
     val lat: String,
     val lng: String
 )

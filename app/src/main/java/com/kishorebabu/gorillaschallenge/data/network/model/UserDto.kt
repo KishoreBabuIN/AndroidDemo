@@ -1,8 +1,8 @@
 package com.kishorebabu.gorillaschallenge.data.network.model
 
 data class UserDto(
-    val address: Address,
-    val company: Company,
+    val address: AddressDto,
+    val company: CompanyDto,
     val email: String,
     val id: Int,
     val name: String,

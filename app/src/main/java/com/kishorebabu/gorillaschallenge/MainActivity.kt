@@ -3,7 +3,7 @@ package com.kishorebabu.gorillaschallenge
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import com.kishorebabu.gorillaschallenge.data.network.JsonPlaceholderApi
+import com.kishorebabu.gorillaschallenge.data.network.api.JsonPlaceholderApi
 import com.kishorebabu.gorillaschallenge.data.network.model.PostDto
 import dagger.hilt.android.AndroidEntryPoint
 import retrofit2.Call

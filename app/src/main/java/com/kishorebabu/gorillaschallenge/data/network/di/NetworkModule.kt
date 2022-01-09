@@ -1,6 +1,7 @@
 package com.kishorebabu.gorillaschallenge.data.network.di
 
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
+import com.kishorebabu.gorillaschallenge.data.network.api.JsonPlaceholderApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -9,12 +10,14 @@ import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType
 import retrofit2.Retrofit
+import javax.inject.Singleton
 
 @InstallIn(SingletonComponent::class)
 @Module
 object NetworkModule {
     @OptIn(ExperimentalSerializationApi::class)
     @Provides
+    @Singleton
     fun provideRetrofit(): Retrofit {
 
         val contentType = MediaType.get("application/json")
@@ -23,4 +26,9 @@ object NetworkModule {
             .addConverterFactory(Json.asConverterFactory(contentType))
             .build();
     }
+
+    @Provides
+    @Singleton
+    fun provideJsonPlaceholderApi(retrofit: Retrofit): JsonPlaceholderApi =
+        retrofit.create(JsonPlaceholderApi::class.java)
 }
