@@ -10,6 +10,7 @@ import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType
 import retrofit2.Retrofit
+import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import javax.inject.Singleton
 
 @InstallIn(SingletonComponent::class)
@@ -23,6 +24,7 @@ object NetworkModule {
         val contentType = MediaType.get("application/json")
         return Retrofit.Builder()
             .baseUrl("https://jsonplaceholder.typicode.com")
+            .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
             .addConverterFactory(Json.asConverterFactory(contentType))
             .build();
     }

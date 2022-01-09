@@ -1,13 +1,10 @@
 package com.kishorebabu.gorillaschallenge.data.mapper.di
 
-import com.kishorebabu.gorillaschallenge.utils.Mapper
-import com.kishorebabu.gorillaschallenge.data.mapper.AddressDtoToEntityMapper
-import com.kishorebabu.gorillaschallenge.data.mapper.CompanyDtoToEntityMapper
-import com.kishorebabu.gorillaschallenge.data.mapper.GeoDtoToEntityMapper
-import com.kishorebabu.gorillaschallenge.data.mapper.PostDtoToEntityMapper
-import com.kishorebabu.gorillaschallenge.data.mapper.UserDtoToEntityMapper
+import com.kishorebabu.gorillaschallenge.data.mapper.*
 import com.kishorebabu.gorillaschallenge.data.network.model.*
 import com.kishorebabu.gorillaschallenge.domain.model.*
+import com.kishorebabu.gorillaschallenge.utils.ListMapper
+import com.kishorebabu.gorillaschallenge.utils.Mapper
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -30,4 +27,7 @@ internal interface MapperModule {
 
     @Binds
     fun bindUserDtoToEntityMapper(impl: UserDtoToEntityMapper): Mapper<UserDto, User>
+
+    @Binds
+    fun bindPostListMapper(impl: PostListDtoMapper): ListMapper<PostDto, Post>
 }

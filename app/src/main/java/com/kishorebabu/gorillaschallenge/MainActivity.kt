@@ -1,39 +1,35 @@
 package com.kishorebabu.gorillaschallenge
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import com.kishorebabu.gorillaschallenge.data.network.api.JsonPlaceholderApi
-import com.kishorebabu.gorillaschallenge.data.network.model.PostDto
+import com.kishorebabu.gorillaschallenge.domain.repository.PostRepository
 import dagger.hilt.android.AndroidEntryPoint
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.schedulers.Schedulers
 import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     @Inject
-    lateinit var retrofit: Retrofit
+    lateinit var postRepo: PostRepository
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        retrofit.create(JsonPlaceholderApi::class.java)
-            .getAllPosts().enqueue(object : Callback<List<PostDto>> {
-                override fun onResponse(
-                    call: Call<List<PostDto>>,
-                    response: Response<List<PostDto>>
-                ) {
-                    Log.d("asdf", "Response: ${response.body()?.size}")
+        postRepo
+            .getAllPosts()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(
+                {
+                    Log.d("asdf", "Response: ${it.size}")
+                },
+                {
+                    Log.e("asdf", "Failed", it)
                 }
-
-                override fun onFailure(call: Call<List<PostDto>>, t: Throwable) {
-                    Log.e("asdf", "Failed", t)
-                }
-
-            })
+            )
     }
 }
