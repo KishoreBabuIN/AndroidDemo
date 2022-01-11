@@ -17,7 +17,4 @@ internal interface UseCaseModule {
 
     @Binds
     fun bindGetUserByIdUseCase(impl: GetUserByIdUseCaseImpl): GetUserByIdUseCase
-
-    @Binds
-    fun bindGetPostWithUserUseCase(impl: GetPostWithUserDetailsUseCaseImpl): GetPostWithUserDetailsUseCase
 }
