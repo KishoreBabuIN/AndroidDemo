@@ -1,5 +1,7 @@
 package com.kishorebabu.core
 
+import io.reactivex.rxjava3.core.Single
+
 sealed class Result<out T, out E> {
     data class Success<out T>(val value: T) : Result<T, Nothing>()
     data class Failure<out E>(val error: E) : Result<Nothing, E>()
@@ -16,3 +18,7 @@ sealed class Result<out T, out E> {
 }
 
 typealias SimpleResult<T> = Result<T, Throwable>
+
+fun <T : Any> Single<T>.mapToResult(networkResultMapper: NetworkResultMapper): Single<SimpleResult<T>> {
+    return networkResultMapper.map(this)
+}

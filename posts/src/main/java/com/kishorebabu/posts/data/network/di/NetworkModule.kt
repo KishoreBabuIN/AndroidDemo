@@ -1,6 +1,8 @@
 package com.kishorebabu.posts.data.network.di
 
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
+import com.kishorebabu.core.NetworkResultMapper
+import com.kishorebabu.core.NetworkResultMapperImpl
 import com.kishorebabu.posts.data.network.api.JsonPlaceholderApi
 import dagger.Module
 import dagger.Provides
@@ -33,4 +35,8 @@ object NetworkModule {
     @Singleton
     fun provideJsonPlaceholderApi(retrofit: Retrofit): JsonPlaceholderApi =
         retrofit.create(JsonPlaceholderApi::class.java)
+
+    @Provides
+    @Singleton
+    fun provideNetworkResultMapper(): NetworkResultMapper = NetworkResultMapperImpl()
 }
