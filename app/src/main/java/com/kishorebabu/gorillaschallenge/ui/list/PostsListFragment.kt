@@ -8,6 +8,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 import com.kishorebabu.gorillaschallenge.R
 import com.kishorebabu.gorillaschallenge.databinding.FragmentPostsListBinding
 import com.kishorebabu.gorillaschallenge.ui.UiState
@@ -28,6 +29,7 @@ class PostsListFragment : Fragment(R.layout.fragment_posts_list) {
         viewModel.uiState.observe(viewLifecycleOwner) {
             when (it) {
                 is UiState.Content -> {
+                    binding.loading.visibility = View.GONE
                     postsListAdapter.setPosts(
                         it.data
                     ) { post ->
@@ -35,8 +37,13 @@ class PostsListFragment : Fragment(R.layout.fragment_posts_list) {
                             .navigate(PostsListFragmentDirections.actionPostDetails(post))
                     }
                 }
-                is UiState.Error -> Log.e("asdf", "Error", it.throwable)
-                UiState.Loading -> Log.d("asdf", "Loading...")
+                is UiState.Error -> {
+                    binding.loading.visibility = View.GONE
+                    Snackbar.make(binding.root, R.string.generic_error, Snackbar.LENGTH_SHORT)
+                        .show()
+                    Log.e("asdf", "Error", it.throwable)
+                }
+                UiState.Loading -> binding.loading.visibility = View.VISIBLE
             }
         }
 
