@@ -16,9 +16,15 @@ internal class UserRepositoryImpl @Inject constructor(
     private val mapper: Mapper<UserDto, User>,
     private val networkResultMapper: NetworkResultMapper,
 ) : UserRepository {
+    private val userInMemoryMap = mutableMapOf<String, User>()
+
     override fun getUserById(id: String): Single<SimpleResult<User>> {
-        return api.getUserById(id)
-            .map { mapper.map(it) }
-            .mapToResult(networkResultMapper)
+        return userInMemoryMap[id]?.let {
+            Single.just(SimpleResult.success(it))
+        } ?: run {
+            api.getUserById(id)
+                .map { mapper.map(it) }
+                .mapToResult(networkResultMapper)
+        }
     }
 }
