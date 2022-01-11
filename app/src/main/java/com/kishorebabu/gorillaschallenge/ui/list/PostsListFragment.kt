@@ -5,28 +5,45 @@ import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.kishorebabu.gorillaschallenge.R
+import com.kishorebabu.gorillaschallenge.databinding.FragmentPostsListBinding
 import com.kishorebabu.gorillaschallenge.ui.UiState
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class PostsListFragment : Fragment(R.layout.fragment_posts_list) {
     private val viewModel by viewModels<PostsListViewModel>()
+    private lateinit var binding: FragmentPostsListBinding
+    private val postsListAdapter = PostsListAdapter()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.uiState.observe(viewLifecycleOwner, Observer {
+        binding = FragmentPostsListBinding.bind(view)
+
+        setupViews()
+        viewModel.uiState.observe(viewLifecycleOwner) {
             when (it) {
-                is UiState.Content -> Log.d("asdf", "Result: ${it.data.size}.")
+                is UiState.Content -> {
+                    postsListAdapter.setPosts(
+                        it.data
+                    ) {
+                        Log.d("asdf", "Post id $it clicked")
+                    }
+                }
                 is UiState.Error -> Log.e("asdf", "Error", it.throwable)
                 UiState.Loading -> Log.d("asdf", "Loading...")
             }
-
-        })
+        }
 
 
         viewModel.onViewReady()
+    }
+
+    private fun setupViews() {
+        binding.rvPosts.adapter = postsListAdapter
+        binding.rvPosts.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
     }
 }
