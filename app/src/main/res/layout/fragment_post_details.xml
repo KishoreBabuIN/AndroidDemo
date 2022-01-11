@@ -9,6 +9,7 @@
 
     <TextView
         android:id="@+id/tv_title"
+        style="@style/TextAppearance.MaterialComponents.Headline3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:text="@tools:sample/lorem" />
@@ -19,6 +20,7 @@
 
     <TextView
         android:id="@+id/tv_user"
+        style="@style/TextAppearance.MaterialComponents.Headline6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,6 +33,7 @@
 
     <TextView
         android:id="@+id/tv_body"
+        style="@style/TextAppearance.MaterialComponents.Body1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:text="@tools:sample/lorem/random" />
