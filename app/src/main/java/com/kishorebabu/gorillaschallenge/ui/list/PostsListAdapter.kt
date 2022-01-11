@@ -10,9 +10,9 @@ import com.kishorebabu.posts.domain.model.Post
 
 class PostsListAdapter : ListAdapter<Post, PostsListAdapter.PostItemViewHolder>(PostListDiffUtil) {
     private val postsList = mutableListOf<Post>()
-    private var postOnClickListener: (String) -> Unit = {}
+    private var postOnClickListener: (Post) -> Unit = {}
 
-    fun setPosts(posts: List<Post>, onClick: (String) -> Unit) {
+    fun setPosts(posts: List<Post>, onClick: (Post) -> Unit) {
         postsList.clear()
         postsList.addAll(posts)
         this.postOnClickListener = onClick
@@ -36,11 +36,11 @@ class PostsListAdapter : ListAdapter<Post, PostsListAdapter.PostItemViewHolder>(
     class PostItemViewHolder constructor(
         private val binding: ItemPostListBinding
     ) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(post: Post, postOnClickListener: (String) -> Unit) {
+        fun bind(post: Post, postOnClickListener: (Post) -> Unit) {
             binding.apply {
                 this.tvBody.text = post.body
                 this.tvTitle.text = post.title
-                root.setOnClickListener { postOnClickListener(post.id) }
+                root.setOnClickListener { postOnClickListener(post) }
             }
         }
     }

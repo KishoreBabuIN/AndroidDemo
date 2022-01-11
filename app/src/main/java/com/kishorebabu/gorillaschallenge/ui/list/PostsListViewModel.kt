@@ -17,7 +17,7 @@ class PostsListViewModel @Inject constructor(
     private val getAllPostsUseCase: GetAllPostsUseCase
 ) : ViewModel() {
 
-    private val uiStateLiveData = MutableLiveData<UiState<List<Post>>>(UiState.Loading)
+    private val uiStateLiveData = MutableLiveData<UiState<List<Post>>>()
     val uiState: LiveData<UiState<List<Post>>> = uiStateLiveData
 
     fun onViewReady() {

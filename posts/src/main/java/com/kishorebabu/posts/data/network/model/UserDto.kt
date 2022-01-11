@@ -1,5 +1,8 @@
 package com.kishorebabu.posts.data.network.model
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class UserDto(
     val address: AddressDto,
     val company: CompanyDto,

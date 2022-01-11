@@ -1,9 +1,6 @@
 package com.kishorebabu.posts.domain.usecase.di
 
-import com.kishorebabu.posts.domain.usecase.GetAllPostsUseCase
-import com.kishorebabu.posts.domain.usecase.GetAllPostsUseCaseImpl
-import com.kishorebabu.posts.domain.usecase.GetUserByIdUseCase
-import com.kishorebabu.posts.domain.usecase.GetUserByIdUseCaseImpl
+import com.kishorebabu.posts.domain.usecase.*
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -16,5 +13,11 @@ internal interface UseCaseModule {
     fun bindGetAllPostsUseCase(impl: GetAllPostsUseCaseImpl): GetAllPostsUseCase
 
     @Binds
+    fun bindGetPostByIdUseCase(impl: GetPostByIdUseCaseImpl): GetPostByIdUseCase
+
+    @Binds
     fun bindGetUserByIdUseCase(impl: GetUserByIdUseCaseImpl): GetUserByIdUseCase
+
+    @Binds
+    fun bindGetPostWithUserUseCase(impl: GetPostWithUserDetailsUseCaseImpl): GetPostWithUserDetailsUseCase
 }

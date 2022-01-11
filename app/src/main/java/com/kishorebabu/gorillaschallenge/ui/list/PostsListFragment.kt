@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.kishorebabu.gorillaschallenge.R
@@ -29,8 +30,9 @@ class PostsListFragment : Fragment(R.layout.fragment_posts_list) {
                 is UiState.Content -> {
                     postsListAdapter.setPosts(
                         it.data
-                    ) {
-                        Log.d("asdf", "Post id $it clicked")
+                    ) { post ->
+                        this.findNavController()
+                            .navigate(PostsListFragmentDirections.actionPostDetails(post))
                     }
                 }
                 is UiState.Error -> Log.e("asdf", "Error", it.throwable)

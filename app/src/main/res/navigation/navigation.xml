@@ -24,8 +24,8 @@
         android:name="com.kishorebabu.gorillaschallenge.ui.details.PostDetailsFragment"
         tools:layout="@layout/fragment_post_details">
         <argument
-            android:name="postId"
-            app:argType="java.lang.String" />
+            android:name="post"
+            app:argType="com.kishorebabu.posts.domain.model.Post" />
 
     </fragment>
 </navigation>
