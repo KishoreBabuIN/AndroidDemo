@@ -20,7 +20,14 @@ class PostsListViewModel @Inject constructor(
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
                 {
-                    Log.d("asdf", "Response: ${it.size}")
+                    it.fold(
+                        success = {
+                            Log.d("asdf", "Response: ${it.size}")
+                        }, failure = {
+                            Log.e("asdf", "Failed", it)
+                        }
+                    )
+
                 },
                 {
                     Log.e("asdf", "Failed", it)

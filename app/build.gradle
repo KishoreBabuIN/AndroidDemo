@@ -36,6 +36,7 @@ android {
 
 dependencies {
     //sub-modules
+    implementation project(":core")
     implementation project(":posts")
 
     implementation "androidx.fragment:fragment-ktx:1.4.0"
