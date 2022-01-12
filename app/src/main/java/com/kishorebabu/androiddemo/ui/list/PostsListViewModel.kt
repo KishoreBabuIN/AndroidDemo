@@ -1,6 +1,5 @@
 package com.kishorebabu.androiddemo.ui.list
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -10,6 +9,7 @@ import com.kishorebabu.posts.domain.usecase.GetAllPostsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
+import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
@@ -35,13 +35,13 @@ class PostsListViewModel @Inject constructor(
                             uiStateLiveData.postValue(UiState.Content(it))
                         }, failure = {
                             uiStateLiveData.postValue(UiState.Error(it))
-                            Log.e("asdf", "Failed", it)
+                            Timber.e(it, "Failed to fetch posts")
                         }
                     )
                 },
                 {
                     uiStateLiveData.postValue(UiState.Error(it))
-                    Log.e("asdf", "Failed", it)
+                    Timber.e(it, "Failed to fetch posts")
                 }
             )
     }

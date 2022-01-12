@@ -1,7 +1,6 @@
 package com.kishorebabu.androiddemo.ui.list
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -9,9 +8,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
-import com.kishorebabu.androiddemo.ui.UiState
 import com.kishorebabu.androiddemo.R
 import com.kishorebabu.androiddemo.databinding.FragmentPostsListBinding
+import com.kishorebabu.androiddemo.ui.UiState
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -45,7 +44,6 @@ class PostsListFragment : Fragment(R.layout.fragment_posts_list) {
                     binding.loading.visibility = View.GONE
                     Snackbar.make(binding.root, R.string.generic_error, Snackbar.LENGTH_SHORT)
                         .show()
-                    Log.e("asdf", "Error", it.throwable)
                 }
                 UiState.Loading -> binding.loading.visibility = View.VISIBLE
             }
