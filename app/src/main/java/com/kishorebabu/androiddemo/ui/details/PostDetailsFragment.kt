@@ -1,13 +1,13 @@
-package com.kishorebabu.gorillaschallenge.ui.details
+package com.kishorebabu.androiddemo.ui.details
 
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.kishorebabu.gorillaschallenge.R
-import com.kishorebabu.gorillaschallenge.databinding.FragmentPostDetailsBinding
-import com.kishorebabu.gorillaschallenge.ui.UiState
+import com.kishorebabu.androiddemo.ui.UiState
+import com.kishorebabu.androiddemo.R
+import com.kishorebabu.androiddemo.databinding.FragmentPostDetailsBinding
 import com.kishorebabu.posts.domain.model.Post
 import com.kishorebabu.posts.domain.model.PostWithUser
 import dagger.hilt.android.AndroidEntryPoint

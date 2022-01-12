@@ -1,5 +1,5 @@
 # Android Demo
-[![Android CI](https://github.com/KishoreBabuIN/GorillasChallenge/actions/workflows/android.yml/badge.svg?branch=main)](https://github.com/KishoreBabuIN/GorillasChallenge/actions/workflows/android.yml)
+[![Android CI](https://github.com/KishoreBabuIN/AndroidDemo/actions/workflows/android.yml/badge.svg?branch=main)](https://github.com/KishoreBabuIN/AndroidDemo/actions/workflows/android.yml)
 
 Android Demo App.
 

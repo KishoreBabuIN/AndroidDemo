@@ -1,4 +1,4 @@
-package com.kishorebabu.gorillaschallenge
+package com.kishorebabu.androiddemo
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.kishorebabu.gorillaschallenge", appContext.packageName)
+        assertEquals("com.kishorebabu.androiddemo", appContext.packageName)
     }
 }

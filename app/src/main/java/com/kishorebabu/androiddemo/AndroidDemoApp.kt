@@ -1,7 +1,7 @@
-package com.kishorebabu.gorillaschallenge
+package com.kishorebabu.androiddemo
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
-class GorillasChallengeApp : Application()
+class AndroidDemoApp : Application()

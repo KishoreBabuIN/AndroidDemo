@@ -1,11 +1,11 @@
-package com.kishorebabu.gorillaschallenge.ui.list
+package com.kishorebabu.androiddemo.ui.list
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.kishorebabu.gorillaschallenge.databinding.ItemPostListBinding
+import com.kishorebabu.androiddemo.databinding.ItemPostListBinding
 import com.kishorebabu.posts.domain.model.Post
 
 class PostsListAdapter : ListAdapter<Post, PostsListAdapter.PostItemViewHolder>(PostListDiffUtil) {

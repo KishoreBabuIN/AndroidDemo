@@ -1,9 +1,9 @@
-package com.kishorebabu.gorillaschallenge.ui.details
+package com.kishorebabu.androiddemo.ui.details
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.kishorebabu.gorillaschallenge.ui.UiState
+import com.kishorebabu.androiddemo.ui.UiState
 import com.kishorebabu.posts.domain.model.Post
 import com.kishorebabu.posts.domain.model.PostWithUser
 import com.kishorebabu.posts.domain.usecase.GetUserByIdUseCase

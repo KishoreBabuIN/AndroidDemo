@@ -1,4 +1,4 @@
-package com.kishorebabu.gorillaschallenge
+package com.kishorebabu.androiddemo
 
 import org.junit.Test
 

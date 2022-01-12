@@ -1,7 +1,8 @@
-package com.kishorebabu.gorillaschallenge
+package com.kishorebabu.androiddemo
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.kishorebabu.androiddemo.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

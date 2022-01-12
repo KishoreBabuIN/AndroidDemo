@@ -1,4 +1,4 @@
-package com.kishorebabu.gorillaschallenge.ui
+package com.kishorebabu.androiddemo.ui
 
 sealed class UiState<out T> {
     object Loading : UiState<Nothing>()

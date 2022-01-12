@@ -1,4 +1,4 @@
-package com.kishorebabu.gorillaschallenge.ui.list
+package com.kishorebabu.androiddemo.ui.list
 
 import android.os.Bundle
 import android.util.Log
@@ -9,9 +9,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
-import com.kishorebabu.gorillaschallenge.R
-import com.kishorebabu.gorillaschallenge.databinding.FragmentPostsListBinding
-import com.kishorebabu.gorillaschallenge.ui.UiState
+import com.kishorebabu.androiddemo.ui.UiState
+import com.kishorebabu.androiddemo.R
+import com.kishorebabu.androiddemo.databinding.FragmentPostsListBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -34,7 +34,11 @@ class PostsListFragment : Fragment(R.layout.fragment_posts_list) {
                         it.data
                     ) { post ->
                         this.findNavController()
-                            .navigate(PostsListFragmentDirections.actionPostDetails(post))
+                            .navigate(
+                                com.kishorebabu.androiddemo.ui.list.PostsListFragmentDirections.actionPostDetails(
+                                    post
+                                )
+                            )
                     }
                 }
                 is UiState.Error -> {

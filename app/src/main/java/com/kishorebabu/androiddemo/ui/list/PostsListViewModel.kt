@@ -1,10 +1,10 @@
-package com.kishorebabu.gorillaschallenge.ui.list
+package com.kishorebabu.androiddemo.ui.list
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.kishorebabu.gorillaschallenge.ui.UiState
+import com.kishorebabu.androiddemo.ui.UiState
 import com.kishorebabu.posts.domain.model.Post
 import com.kishorebabu.posts.domain.usecase.GetAllPostsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
