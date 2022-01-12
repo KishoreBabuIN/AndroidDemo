@@ -42,8 +42,7 @@ class PostsListFragment : Fragment(R.layout.fragment_posts_list) {
                 is UiState.Error -> {
                     binding?.let {
                         it.loading.visibility = View.GONE
-                        Snackbar.make(it.root, R.string.generic_error, Snackbar.LENGTH_SHORT)
-                            .show()
+                        showGenericErrorSnackbar(it.root) { viewModel.onViewReady() }
                     }
                 }
                 UiState.Loading -> binding?.loading?.visibility = View.VISIBLE
@@ -57,6 +56,13 @@ class PostsListFragment : Fragment(R.layout.fragment_posts_list) {
     override fun onDestroyView() {
         super.onDestroyView()
         binding = null
+    }
+
+    private fun showGenericErrorSnackbar(view: View, onRetry: () -> Unit) {
+        Snackbar.make(view, R.string.generic_error, Snackbar.LENGTH_SHORT).apply {
+            setAction(R.string.retry) { onRetry() }
+            show()
+        }
     }
 
     private fun setupViews() {

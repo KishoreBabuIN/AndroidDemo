@@ -45,4 +45,8 @@ class PostDetailsViewModel @Inject constructor(
                 }
             )
     }
+
+    fun retry(post: Post) {
+        onPostDetails(post)
+    }
 }

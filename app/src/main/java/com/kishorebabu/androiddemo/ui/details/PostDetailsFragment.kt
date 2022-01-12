@@ -24,13 +24,17 @@ class PostDetailsFragment : Fragment(R.layout.fragment_post_details) {
         binding = FragmentPostDetailsBinding.bind(view)
 
         with(args.post) {
+            setupObservers()
             viewModel.onPostDetails(this)
-            viewModel.uiState.observe(viewLifecycleOwner) {
-                when (it) {
-                    is UiState.Content -> renderContent(it.data)
-                    is UiState.Error -> renderError(it.throwable)
-                    UiState.Loading -> binding?.loading?.visibility = View.VISIBLE
-                }
+        }
+    }
+
+    private fun setupObservers() {
+        viewModel.uiState.observe(viewLifecycleOwner) {
+            when (it) {
+                is UiState.Content -> renderContent(it.data)
+                is UiState.Error -> renderError(it.throwable)
+                UiState.Loading -> binding?.loading?.visibility = View.VISIBLE
             }
         }
     }
@@ -39,7 +43,14 @@ class PostDetailsFragment : Fragment(R.layout.fragment_post_details) {
         Timber.e(throwable, "Error in loading post details")
         binding?.loading?.visibility = View.GONE
         binding?.layoutRoot?.let {
-            Snackbar.make(it, R.string.generic_error, Snackbar.LENGTH_SHORT).show()
+            showGenericErrorSnackbar(it, { viewModel.retry(args.post) })
+        }
+    }
+
+    private fun showGenericErrorSnackbar(view: View, onRetry: () -> Unit) {
+        Snackbar.make(view, R.string.generic_error, Snackbar.LENGTH_SHORT).apply {
+            setAction(R.string.retry) { onRetry() }
+            show()
         }
     }
 
