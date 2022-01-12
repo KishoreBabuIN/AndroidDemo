@@ -9,7 +9,6 @@ import com.kishorebabu.androiddemo.databinding.ItemPostListBinding
 import com.kishorebabu.posts.domain.model.Post
 
 class PostsListAdapter : ListAdapter<Post, PostsListAdapter.PostItemViewHolder>(PostListDiffUtil) {
-    private val postsList = mutableListOf<Post>()
     private var postOnClickListener: (Post) -> Unit = {}
 
     fun setPostClickListener(onClick: (Post) -> Unit) {
@@ -23,11 +22,7 @@ class PostsListAdapter : ListAdapter<Post, PostsListAdapter.PostItemViewHolder>(
     }
 
     override fun onBindViewHolder(holder: PostItemViewHolder, position: Int) {
-        holder.bind(postsList[position], postOnClickListener)
-    }
-
-    override fun getItemCount(): Int {
-        return postsList.size
+        holder.bind(currentList[position], postOnClickListener)
     }
 
     class PostItemViewHolder constructor(
