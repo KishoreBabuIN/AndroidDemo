@@ -12,11 +12,8 @@ class PostsListAdapter : ListAdapter<Post, PostsListAdapter.PostItemViewHolder>(
     private val postsList = mutableListOf<Post>()
     private var postOnClickListener: (Post) -> Unit = {}
 
-    fun setPosts(posts: List<Post>, onClick: (Post) -> Unit) {
-        postsList.clear()
-        postsList.addAll(posts)
+    fun setPostClickListener(onClick: (Post) -> Unit) {
         this.postOnClickListener = onClick
-        notifyDataSetChanged() //fixme
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostItemViewHolder {
